@@ -3,7 +3,7 @@
 function App() {
   return (
     <div className="App">
-     Awsome builder by Jumabekova Keremet
+     Awsome builder by Keremet Jumabekova
     </div>
   );
 }
