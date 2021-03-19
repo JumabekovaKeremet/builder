@@ -1,8 +1,8 @@
-.Logo{
+.Logo {
     display: flex;
-    justify-content: space-between;
-}
-.Logo img{
+    align-items: center;
+  }
+  .Logo img {
     height: 3rem;
-    margin: 5rem;
-}
+    margin: .5rem;
+  }

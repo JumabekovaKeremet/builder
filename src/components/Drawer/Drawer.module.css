@@ -1,0 +1,14 @@
+.Drawer .content {
+    width: 250px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+  
+    
+    font-size: 2rem;
+    color: white;
+    background-color: tomato;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+  }
+  
