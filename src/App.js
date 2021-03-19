@@ -14,7 +14,6 @@ function App() {
 
      <h1> Pizza Builder by master Keremet Jumabekoba</h1>
       </Layout>
-
     </div>
   );
 }

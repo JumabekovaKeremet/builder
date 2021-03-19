@@ -1,7 +1,7 @@
 
 import classes from "./Nav.module.css";
 
-const Nav = ({}) => {
+const Nav = () => {
     return (  
         <div className={classes.Nav}>
            Nav
