@@ -1,0 +1,8 @@
+.Logo{
+    display: flex;
+    justify-content: space-between;
+}
+.Logo img{
+    height: 3rem;
+    margin: 5rem;
+}
