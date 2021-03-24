@@ -6,6 +6,7 @@ function App() {
     <div className="App">
       <Layout>
         Pizza Builder by master Keremet Jumabekova
+        <PizzaBuilder/>
       </Layout>
     </div>
   );
