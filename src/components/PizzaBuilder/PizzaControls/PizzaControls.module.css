@@ -1,4 +1,7 @@
 .PizzaControls{
-   color: sandybrown; 
-   width: 250px;
+    flex: 0 0 250px;
+    color: seashell;
+   background-color: sandybrown; 
+   padding: 1rem;
+   border-radius: 1rem;
 }
