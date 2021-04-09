@@ -1,4 +1,5 @@
-import classes from "./PizzaIngerdient.module.css";
+import React from "react";
+import classes from "./IcecreamIngredient.module.css";
 import salamiBackground from "../../../img/salami.svg";
 import tomatoBackground from "../../../img/tomato.svg";
 import blackOliveBackground from "../../../img/blackOlive.svg";
@@ -6,7 +7,8 @@ import greenOliveBackground from "../../../img/greenOlive.svg";
 import redPepperBackground from "../../../img/redPepper.svg";
 import yellowPepperBackground from "../../../img/yellowPepper.svg";
 
-const PizzaIngredient = ({ type, fixed }) => {
+
+const IcecreamIngredient = ({ type, fixed }) => {
   const types = {
     salami: { backgroundImage: `url(${salamiBackground})`, width: "35px", height: "35px" },
     tomato: { backgroundImage: `url(${tomatoBackground})`, width: "35px", height: "35px" },
@@ -28,6 +30,8 @@ const PizzaIngredient = ({ type, fixed }) => {
       Math.pow(ingredientTop - pizzaRadius, 2) + Math.pow(ingredientLeft - pizzaRadius, 2)
     ) + ingredientRadius;
 
+
+
     return distance < pizzaRadius
       ? {
         top: ingredientTop - ingredientRadius,
@@ -46,8 +50,8 @@ const PizzaIngredient = ({ type, fixed }) => {
   types[type].transform = `rotate(${Math.round(Math.random() * 360)}deg)`;
 
   return (
-    <div className={classes.PizzaIngredient} style={types[type]}></div>
+    <div className={classes.IcecreamIngredient} style={types[type]}></div>
   );
 }
   
- export default PizzaIngredient;
+ export default React.memo(IcecreamIngredient);

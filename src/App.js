@@ -1,5 +1,5 @@
 import Layout from "./components/Layout/Layout";
-import PizzaBuilder from "./components/PizzaBuilder/PizzaBuilder";
+import IcecreamBuilder from "./components/IcecreamBuilder/IcecreamBuilder";
 
 import "./App.css";
 
@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <Layout>
         Pizza Builder by master Keremet Jumabekova
-        <PizzaBuilder/>
+        <IcecreamBuilder/>
       </Layout>
     </div>
   );

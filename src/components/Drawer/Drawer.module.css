@@ -1,27 +1,26 @@
-.Drawer .content {
-  width: 250px;
+.Drawer .content{
   height: 100%;
+  width: 250px;
   position: fixed;
   top: 0;
   left: 0;
-  padding: 1rem 0;
 
-  color: white;
-  background-color: tomato;
-  box-shadow: 0 0 10px rgba(0, 0, 0, .5);
-  font-size: 2rem;
+  font-size: 1.7rem;
+  background:rgb(243, 219, 3);
+  color: green;
+  box-shadow:  0 0 10px rgba(0, 0, 0, .5);
   transition: transform .3s ease-out;
 }
-
-.open {
+.open{
   transform: translateX(0);
 }
 .close{
   transform: translateX(-260px);
 }
 
-@media (min-width: 550px) {
+
+@media (min-width:550px){
   .Drawer {
-    display: none;
+      display: none;
   }
 }

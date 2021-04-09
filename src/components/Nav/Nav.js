@@ -1,9 +1,11 @@
-import classes from "./Nav.module.css";
+import classes from "./Nav.module.css"
 
 const Nav = () => {
-  return (
-    <div className={classes.Nav}>Nav</div>
-  );
+    return ( 
+        <div className={classes.Nav}>
+            Nav
+        </div>
+     );
 }
-
+ 
 export default Nav;
