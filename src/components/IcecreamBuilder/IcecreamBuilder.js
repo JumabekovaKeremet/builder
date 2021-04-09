@@ -14,12 +14,13 @@ const IcecreamBuilder = () => {
     strawberry: 4,
   }; 
   const [ingredients, setIngredients] = useState({});
-
   const [price, setPrice] = useState(0);
   const [ordering, setOrdering] = useState(false);
 
-  useEffect(
-    () => axios
+  useEffect(loadDefaults, []);
+
+  function loadDefaults() {
+    axios
       .get('https://builder-5666c-default-rtdb.firebaseio.com/default.json')
       .then(response => {
         setPrice(response.data.price);
@@ -28,8 +29,8 @@ const IcecreamBuilder = () => {
         // setIngredients(Object.values(response.data.ingredients));
         // For objects
         setIngredients(response.data.ingredients);
-      }), []
-  );
+      });
+  }
 
   function addIngredient(type) {
     const newIngredients = { ...ingredients };
@@ -54,8 +55,20 @@ const IcecreamBuilder = () => {
   function stopOrdering() {
     setOrdering(false);
   }
+
   function finishOrdering() {
-    setOrdering(false);
+    axios
+      .post('https://builder-5666c-default-rtdb.firebaseio.com/orders.json', {
+        ingredients: ingredients,
+        price: price,
+        address: "1234 Jusaeva str",
+        phone: "0 777 777 777",
+        name: "Sadyr Japarov",
+      })
+      .then(() => {
+        setOrdering(false);
+        loadDefaults();
+      });
   }
 
   return (
