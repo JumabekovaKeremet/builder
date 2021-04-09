@@ -2,9 +2,10 @@ import classes from "./Nav.module.css"
 
 const Nav = () => {
     return ( 
-        <div className={classes.Nav}>
-            Nav
-        </div>
+        <ul className={classes.Nav}>
+            <NavItem url="/" activ>Builder</NavItem>
+            <NavItem url="/">Checkout</NavItem>
+        </ul>
      );
 }
  

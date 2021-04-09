@@ -1,8 +1,11 @@
 import IcecreamPreview from "./IcecreamPreview/IcecreamPreview";  
 import Modal from "../UI/Modal/Modal";
 import classes from "./IcecreamBuilder.module.css";
+import Button from "../UI/Button/Button";
+import OrderSummary from "../IcecreamBuilder/OrderSummary/OrderSummary";
 import { useEffect, useState } from "react";
 import axios from "axios";
+
 import IcecreamControls from "./IcecreamControls/IcecreamControl/IcecreamControl";
 
 const IcecreamBuilder = () => {
