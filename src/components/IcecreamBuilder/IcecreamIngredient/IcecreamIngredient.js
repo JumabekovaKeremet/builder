@@ -1,57 +1,50 @@
-import React from "react";
+import React, { memo } from "react";
 import classes from "./IcecreamIngredient.module.css";
-import salamiBackground from "../../../img/salami.svg";
-import tomatoBackground from "../../../img/tomato.svg";
-import blackOliveBackground from "../../../img/blackOlive.svg";
-import greenOliveBackground from "../../../img/greenOlive.svg";
-import redPepperBackground from "../../../img/redPepper.svg";
-import yellowPepperBackground from "../../../img/yellowPepper.svg";
 
+export default memo(({ type }) => {
+  const toysClasses = [classes.IcecreamIngredient, classes[type]];
 
-const IcecreamIngredient = ({ type, fixed }) => {
-  const types = {
-    salami: { backgroundImage: `url(${salamiBackground})`, width: "35px", height: "35px" },
-    tomato: { backgroundImage: `url(${tomatoBackground})`, width: "35px", height: "35px" },
-    blackOlive: { backgroundImage: `url(${blackOliveBackground})`, width: "10px", height: "10px" },
-    greenOlive: { backgroundImage: `url(${greenOliveBackground})`, width: "10px", height: "10px" },
-    redPepper: { backgroundImage: `url(${redPepperBackground})`, width: "20px", height: "20px" },
-    yellowPepper: { backgroundImage: `url(${yellowPepperBackground})`, width: "40px", height: "40px" },
+  const pd = 40;
+  const th = 380;
+  const tw = 260;
+
+  let stylePos = null;
+  const getPosition = (ir) => {
+    const ix = Math.floor(Math.random() * tw, 5);
+    const iy = Math.floor(Math.random() * th, 12);
+
+    const distance =
+      Math.sqrt(Math.pow(ix - th, 2) + Math.pow(iy - th, 2)) + ir;
+
+    return distance < th ? { x: ix - ir, y: iy - ir } : getPosition(pd);
   };
 
-  function getPosition(ingredientWidth) {
-    const pizzaDiameter = 380;
-    const pizzaRadius = pizzaDiameter / 2;
-    const ingredientRadius = parseInt(ingredientWidth) / 2;
-
-    const ingredientTop = Math.round(Math.random() * pizzaDiameter);
-    const ingredientLeft = Math.round(Math.random() * pizzaDiameter);
-
-    const distance = Math.sqrt(
-      Math.pow(ingredientTop - pizzaRadius, 2) + Math.pow(ingredientLeft - pizzaRadius, 2)
-    ) + ingredientRadius;
-
-
-
-    return distance < pizzaRadius
-      ? {
-        top: ingredientTop - ingredientRadius,
-        left: ingredientLeft - ingredientRadius
-      }
-      : getPosition(ingredientWidth);
+  switch (type) {
+    case "bananas":
+      toysClasses.push(classes.bananas);
+      break;
+    case "chocolate":
+      toysClasses.push(classes.chocolate);
+      break;
+    case "lactic":
+      toysClasses.push(classes.lactic);
+      break;
+    case "pistachio":
+      toysClasses.push(classes.pistachio);
+      break;
+    case "strawberry":
+      toysClasses.push(classes.strawberry);
+      break;
+    
   }
 
-  // Get random position for this ingredient.
-  if (!fixed) {
-    const position = getPosition(types[type].width);
-    types[type].top = position.top + "px";
-    types[type].left = position.left + "px";
-  }
-  // Get random rotation for this ingredient.
-  types[type].transform = `rotate(${Math.round(Math.random() * 360)}deg)`;
+  const position = getPosition(110 / 6);
 
-  return (
-    <div className={classes.IcecreamIngredient} style={types[type]}></div>
-  );
-}
-  
- export default React.memo(IcecreamIngredient);
+  stylePos = {
+    position: "absolute",
+    top: position.y + "px",
+    left: position.x + "px",
+  };
+  return <div style={stylePos} className={IcecreamIngredientsClasses.join(" ")}></div>;
+});
+export default IcecreamIngredient;
