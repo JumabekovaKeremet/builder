@@ -54,6 +54,9 @@ const IcecreamBuilder = () => {
   function stopOrdering() {
     setOrdering(false);
   }
+  function finishOrdering() {
+    setOrdering(false);
+  }
 
   return (
     <div className={classes.IcecreamBuilder}>
@@ -68,9 +71,15 @@ const IcecreamBuilder = () => {
         />
       <Modal
         show={ordering}
-        cancel={stopOrdering}>Hello</Modal>
+        cancel={stopOrdering}>
+          <OrderSummary
+            ingredients={ingredients}
+            price={price}
+            />
+          <Button onClick={finishOrdering} green>Checkout</Button>
+          <Button onClick={stopOrdering}>Cancel</Button>
+        </Modal>
     </div>
   );
 }
-
 export default IcecreamBuilder;
