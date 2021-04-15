@@ -1,50 +1,51 @@
-import React, { memo } from "react";
+
 import classes from "./IcecreamIngredient.module.css";
 
-export default memo(({ type }) => {
-  const toysClasses = [classes.IcecreamIngredient, classes[type]];
-
-  const pd = 40;
-  const th = 380;
-  const tw = 260;
-
-  let stylePos = null;
-  const getPosition = (ir) => {
-    const ix = Math.floor(Math.random() * tw, 5);
-    const iy = Math.floor(Math.random() * th, 12);
-
-    const distance =
-      Math.sqrt(Math.pow(ix - th, 2) + Math.pow(iy - th, 2)) + ir;
-
-    return distance < th ? { x: ix - ir, y: iy - ir } : getPosition(pd);
+const IcecreamIngredient = ({ type }) => {
+  const types = {
+    bananas: {
+      backgroundImage: `url("${buns}")`,
+      backgroundSize: "Cover",
+      width: "50px",
+      height: "50px",
+      marginRight: "5px",
+      display: "inline-block",
+    },
+    chocolate: {
+      backgroundImage: `url("${bread}")`,
+      backgroundSize: "Cover",
+      width: "50px",
+      height: "50px",
+      marginRight: "5px",
+      display: "inline-block",
+    },
+    lactic: {
+      backgroundImage: `url("${blackBun}")`,
+      backgroundSize: "Cover",
+      width: "50px",
+      height: "50px",
+      marginRight: "5px",
+      display: "inline-block",
+    },
+    pistachio: {
+      backgroundImage: `url("${croissant}")`,
+      backgroundSize: "Cover",
+      width: "50px",
+      height: "50px",
+      marginRight: "5px",
+      display: "inline-block",
+    },
+    strawberry: {
+      backgroundImage: `url("${ecler}")`,
+      backgroundSize: "Cover",
+      width: "50px",
+      height: "50px",
+      marginRight: "5px",
+      display: "inline-block",
+    },
   };
 
-  switch (type) {
-    case "bananas":
-      toysClasses.push(classes.bananas);
-      break;
-    case "chocolate":
-      toysClasses.push(classes.chocolate);
-      break;
-    case "lactic":
-      toysClasses.push(classes.lactic);
-      break;
-    case "pistachio":
-      toysClasses.push(classes.pistachio);
-      break;
-    case "strawberry":
-      toysClasses.push(classes.strawberry);
-      break;
-    
-  }
+  return <div className={classes.IcecreamIngredient} style={types[type]}></div>;
+};
 
-  const position = getPosition(110 / 6);
-
-  stylePos = {
-    position: "absolute",
-    top: position.y + "px",
-    left: position.x + "px",
-  };
-  return <div style={stylePos} className={IcecreamIngredientsClasses.join(" ")}></div>;
-});
 export default IcecreamIngredient;

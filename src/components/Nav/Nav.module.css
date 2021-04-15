@@ -1,5 +1,12 @@
-@media (min-width: 549){
-    .Nav{
-      display: none;
-    }
+.Nav {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 549px) {
+  .Nav {
+    flex-direction: column;
   }
+}

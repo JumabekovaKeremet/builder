@@ -3,16 +3,15 @@ import Button from "../../../UI/Button/Button";
 import IcecreamIngredient from "../../IcecreamIngredient/IcecreamIngredient";
 import classes from "./IcecreamControl.module.css";
 
-const IcecreamControl = ({ type, add, remove }) => {
-  return (
-    <div className={classes.IcecreamControl}>
-      <Button onClick={() => add(type)}>+</Button>
-      <div className={classes.ingredient}>
-        <IcecreamIngredient type={type} fixed />
-      </div>
-      <Button onClick={() => remove(type)}>-</Button>
-    </div>
-  );
-}
+const IcecreamControl = ({ switchFilling, count, type, addIngredient, removeIngredient }) => {
 
+    return ( 
+        <div className = {classes.BunsControl}>
+            <Button className = {classes.ControlButton} onClick = {() => removeIngredient(type)} disabled={!count}>-</Button>
+            <IcecreamIngredient type = {type} />
+            <Button className = {classes.ControlButton} onClick = {() => addIngredient(type)}>+</Button>
+        </div>
+    );
+}
+ 
 export default IcecreamControl;

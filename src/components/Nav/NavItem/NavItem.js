@@ -8,4 +8,4 @@ const NavItem = ({ url, children, active }) => {
   );
 }
 
-export default NavItem;
+export default NavItem; 

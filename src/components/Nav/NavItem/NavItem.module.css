@@ -13,3 +13,8 @@
   .NavItem a.active {
     border-color: white;
   }
+  @media(max-width: 550px){
+    .Nav{
+      flex-direction: column;
+    }
+  }

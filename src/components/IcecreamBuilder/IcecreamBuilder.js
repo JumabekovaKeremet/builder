@@ -1,101 +1,79 @@
-import IcecreamPreview from "./IcecreamPreview/IcecreamPreview";  
+import axios from "axios";
+import React, { useEffect } from "react";
+import { useState } from "react";
 import Modal from "../UI/Modal/Modal";
 import classes from "./IcecreamBuilder.module.css";
-import Button from "../UI/Button/Button";
-import OrderSummary from "../IcecreamBuilder/OrderSummary/OrderSummary";
-import { useEffect, useState } from "react";
-import axios from "axios";
-
-import IcecreamControls from "./IcecreamControls/IcecreamControl/IcecreamControl";
+import IcecreamControls from "./IcecreamControls/IcecreamControls";
+import IcecreamPreview from "./IcecreamPreview/IcecreamPreview";
 
 const IcecreamBuilder = () => {
+
+  const [ingredients, setIngredients] = useState([]);
+
+  const [price, setPrice] = useState(0);
   const prices = {
     banana: 5,
     chocolate: 6,
     lactic: 3,
     pistachio: 5,
     strawberry: 4,
-  }; 
-  const [ingredients, setIngredients] = useState({});
-  const [price, setPrice] = useState(0);
-  const [ordering, setOrdering] = useState(false);
+  };
 
-  useEffect(loadDefaults, []);
-
-  function loadDefaults() {
-    axios
-      .get('https://builder-5666c-default-rtdb.firebaseio.com/default.json')
-      .then(response => {
-        setPrice(response.data.price);
-
-        // For arrays
-        // setIngredients(Object.values(response.data.ingredients));
-        // For objects
-        setIngredients(response.data.ingredients);
-      });
+  const [filling, setFilling] = useState("")
+  function switchFilling(fillingBun) {
+    setFilling(fillingBun)
   }
 
+  
+  const [ordering, setOrdering] = useState(false);
+  function startOrdering() {
+    setOrdering(true);
+  }
+  function stopOrdering() {
+    setOrdering(false);
+  }
+  
+  useEffect(() => {
+    axios.get(`https://builder-5666c-default-rtdb.firebaseio.com/default.json`)
+        .then((responce) => {
+          setPrice(responce.data.price);
+          setIngredients(Object.values(responce.data.ingredients))
+        })
+  }, [])
+
   function addIngredient(type) {
-    const newIngredients = { ...ingredients };
-    newIngredients[type]++;
+    const newIngredients = [ ...ingredients ];
+    newIngredients.push(type);
     setPrice(price + prices[type]);
     setIngredients(newIngredients);
   }
 
   function removeIngredient(type) {
-    if (ingredients[type]) {
-      const newIngredients = { ...ingredients };
-      newIngredients[type]--;
+    const index = ingredients.lastIndexOf(type);
+    if (index !== -1) {
+      const newIngredients = [ ...ingredients ];
+      newIngredients.splice(index, 1);
       setPrice(price - prices[type]);
       setIngredients(newIngredients);
     }
   }
 
-  function startOrdering() {
-    setOrdering(true);
-  }
-
-  function stopOrdering() {
-    setOrdering(false);
-  }
-
-  function finishOrdering() {
-    axios
-      .post('https://builder-5666c-default-rtdb.firebaseio.com/orders.json', {
-        ingredients: ingredients,
-        price: price,
-        address: "1234 Jusaeva str",
-        phone: "0 777 777 777",
-        name: "Sadyr Japarov",
-      })
-      .then(() => {
-        setOrdering(false);
-        loadDefaults();
-      });
-  }
-
   return (
     <div className={classes.IcecreamBuilder}>
-      <IcecreamPreview
-        ingredients={ingredients}
-        price={price} />
+      <IcecreamPreview price={price} ingredients={ingredients} startOrdering={startOrdering}/>
       <IcecreamControls
+        filling={filling}
         ingredients={ingredients}
+        switchFilling={switchFilling}
         addIngredient={addIngredient}
         removeIngredient={removeIngredient}
-        startOrdering={startOrdering}
-        />
+        startOrdering = {startOrdering}
+      />
       <Modal
         show={ordering}
-        cancel={stopOrdering}>
-          <OrderSummary
-            ingredients={ingredients}
-            price={price}
-            />
-          <Button onClick={finishOrdering} green>Checkout</Button>
-          <Button onClick={stopOrdering}>Cancel</Button>
-        </Modal>
+        cancel={stopOrdering}>Hello</Modal>
     </div>
   );
-}
-export default IcecreamBuilder;
+};
+
+export default React.memo(IcecreamBuilder);
