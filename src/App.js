@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <Layout>
-        Pizza Builder by master Keremet Jumabekova
+       Ice cream 
         <IcecreamBuilder/>
       </Layout>
     </div>

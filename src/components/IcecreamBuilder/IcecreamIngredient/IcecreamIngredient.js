@@ -1,5 +1,5 @@
-
 import classes from "./IcecreamIngredient.module.css";
+
 
 const IcecreamIngredient = ({ type }) => {
   const types = {

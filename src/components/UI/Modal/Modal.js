@@ -1,5 +1,5 @@
 import classes from "./Modal.module.css";
-import Backdrop from "../Backdrop/Backdrop";
+import Backdrop from "../Backdrop";
 
 
 

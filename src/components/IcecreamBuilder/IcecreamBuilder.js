@@ -4,7 +4,7 @@ import { useState } from "react";
 import Modal from "../UI/Modal/Modal";
 import classes from "./IcecreamBuilder.module.css";
 import IcecreamControls from "./IcecreamControls/IcecreamControls";
-import IcecreamPreview from "./IcecreamPreview/IcecreamPreview";
+import IcecreamPreview from "./IcecreamPreview/IcecreamPreview";  
 
 const IcecreamBuilder = () => {
 
