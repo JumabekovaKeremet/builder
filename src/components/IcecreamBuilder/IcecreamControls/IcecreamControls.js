@@ -2,40 +2,30 @@
 import Button from "../../UI/Button/Button";
 import IcecreamControl from "./IcecreamControl/IcecreamControl";
 import classes from "./IcecreamControls.module.css";
-import SwitchBun from "./SwitchBun/SwitchBun";
 
 const IcecreamControls = ({
-  switchFilling,
   startOrdering,
-  filling,
   addIngredient,
   ingredients,
   removeIngredient,
 }) => {
-  const result = [];
-  const names = ["banana", "chocolate", "lactic", "pistachio", "strawberry"];
+  const results = [];
+  let total = 0;
 
-  for (const name in names) {
-    result.push(
-      <IcecreamControl
-        type={names[name] + filling}
-        key={names[name]}
-        switchFilling={switchFilling}
-        count={ingredients.length}
-        addIngredient={addIngredient}
-        removeIngredient={removeIngredient}
-      />
-    );
+  for (const ingredient in ingredients) {
+    total += ingredients[ingredient];
+    results.push(<IcecreamControl
+      key={ingredient}
+      add={addIngredient}
+      remove={removeIngredient}
+      count={ingredients[ingredient]}
+      type={ingredient} />)
   }
   return (
     <div className={classes.IcecreamControls}>
-      <SwitchBun switchFilling={switchFilling} />
-      {result}
-      <div className={classes.DivButton}>
-        <Button disabled={!ingredients.length} onClick={startOrdering} glav="true">
-          Order
-        </Button>
-      </div>
+      <strong>Ingredients</strong>
+      {results}
+      <Button disabled={!total} onClick={startOrdering}>Order</Button>
     </div>
   );
 };

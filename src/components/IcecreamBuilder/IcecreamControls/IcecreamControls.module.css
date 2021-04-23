@@ -1,7 +1,7 @@
 .IcecreamControls{
     flex: 0 0 250px;
-    color: seashell;
-   background-color: salmon; 
+    color: rgb(199, 151, 117);
+   background-color: rgb(246, 253, 151); 
    padding: 1rem;
    border-radius: 1rem;
 }

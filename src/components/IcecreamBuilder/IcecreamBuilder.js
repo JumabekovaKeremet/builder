@@ -1,31 +1,25 @@
 import axios from "axios";
 import React, { useEffect } from "react";
 import { useState } from "react";
-import Modal from "../UI/Modal/Modal";
+import Modal  from "../UI/Modal/Modal";
 import classes from "./IcecreamBuilder.module.css";
 import IcecreamControls from "./IcecreamControls/IcecreamControls";
-import IcecreamPreview from "./IcecreamPreview/IcecreamPreview";  
+import IcecreamPreview from "./IcecreamPreview/IcecreamPreview";
 
 const IcecreamBuilder = () => {
 
   const [ingredients, setIngredients] = useState([]);
+  const [ordering, setOrdering] = useState(false);
 
   const [price, setPrice] = useState(0);
   const prices = {
-    banana: 5,
+    bananas: 5,
     chocolate: 6,
-    lactic: 3,
     pistachio: 5,
     strawberry: 4,
   };
 
-  const [filling, setFilling] = useState("")
-  function switchFilling(fillingBun) {
-    setFilling(fillingBun)
-  }
-
   
-  const [ordering, setOrdering] = useState(false);
   function startOrdering() {
     setOrdering(true);
   }
@@ -60,11 +54,9 @@ const IcecreamBuilder = () => {
 
   return (
     <div className={classes.IcecreamBuilder}>
-      <IcecreamPreview price={price} ingredients={ingredients} startOrdering={startOrdering}/>
+      <IcecreamPreview price={price} ingredients={ingredients}/>
       <IcecreamControls
-        filling={filling}
         ingredients={ingredients}
-        switchFilling={switchFilling}
         addIngredient={addIngredient}
         removeIngredient={removeIngredient}
         startOrdering = {startOrdering}

@@ -1,48 +1,16 @@
 import classes from "./IcecreamIngredient.module.css";
+import bananas from "../../../img/bananas.svg";
+import strawberry from "../../../img/strawbarry.svg";
+import chocolate from "../../../img/chocolate.svg";
+import pistachio from "../../../img/pistachio.svg"
 
 
 const IcecreamIngredient = ({ type }) => {
   const types = {
-    bananas: {
-      backgroundImage: `url("${buns}")`,
-      backgroundSize: "Cover",
-      width: "50px",
-      height: "50px",
-      marginRight: "5px",
-      display: "inline-block",
-    },
-    chocolate: {
-      backgroundImage: `url("${bread}")`,
-      backgroundSize: "Cover",
-      width: "50px",
-      height: "50px",
-      marginRight: "5px",
-      display: "inline-block",
-    },
-    lactic: {
-      backgroundImage: `url("${blackBun}")`,
-      backgroundSize: "Cover",
-      width: "50px",
-      height: "50px",
-      marginRight: "5px",
-      display: "inline-block",
-    },
-    pistachio: {
-      backgroundImage: `url("${croissant}")`,
-      backgroundSize: "Cover",
-      width: "50px",
-      height: "50px",
-      marginRight: "5px",
-      display: "inline-block",
-    },
-    strawberry: {
-      backgroundImage: `url("${ecler}")`,
-      backgroundSize: "Cover",
-      width: "50px",
-      height: "50px",
-      marginRight: "5px",
-      display: "inline-block",
-    },
+    bananas: { backgroundImage: `url(${bananas})`, width: "35px", height: "35px" },
+    chocolate: { backgroundImage: `url(${chocolate})`, width: "35px", height: "35px" },
+    strawberry: { backgroundImage: `url(${strawberry})`, width: "10px", height: "10px" },
+    pistachio: { backgroundImage: `url(${pistachio  })`, width: "10px", height: "10px" },
   };
 
   return <div className={classes.IcecreamIngredient} style={types[type]}></div>;

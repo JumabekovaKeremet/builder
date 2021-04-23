@@ -1,4 +1,4 @@
-import CheckoutSummary from "./CheckoutSummary/CheckoutSummary"
+import CheckoutSummary from "../Checkout/CheckoutSummary/CheckoutSummary";
 
 const Checkout = ({ history }) => {
   function cancelCallback() {

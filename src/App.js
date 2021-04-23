@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <Layout>
-       Ice cream 
+      
         <IcecreamBuilder/>
       </Layout>
     </div>
