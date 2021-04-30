@@ -1,22 +1,29 @@
 
 import IcecreamIngredient from "../IcecreamIngredient/IcecreamIngredient";
 import classes from "./IcecreamPreview.module.css";
+import icecream from "../../../img/icecream.svg"
 
 const IcecreamPreview = ({ ingredients, price }) => {
+  const types = {
+    icecream: { backgroundImage: `url(${icecream  })`, width: "50px", height: "50px" },
+  };
+
     const result =[];
 
     for (const ingredient in ingredients) {
-        result.push(<IcecreamIngredient key={ingredients[ingredient] + ingredient} type={ingredients[ingredient]} />);
-    }
+        for (let i = 0; i < ingredients[ingredient]; i++){
+        result.push(<IcecreamIngredient   type={ingredient} />);
+    };
+    };
 
-    return ( 
-        <div className = {classes.IcecreamPreview}>
-            <div className={classes.ingredients}>
+        return (
+          <div className={classes.IcecreamPreview}>
+            <div className={classes.icecream}>
                 {result}
             </div>
             <div className={classes.price}>{price.toFixed(1)} som</div>
-        </div>
-    );
+          </div>
+        );
 }
  
 export default IcecreamPreview;

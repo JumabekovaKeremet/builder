@@ -1,15 +1,14 @@
 import classes from "./CheckoutSummary.module.css";
+import HouseplantPreview from "../../HouseplantShop/HouseplantPreview/HouseplantPreview";
 import Button from "../../UI/Button/Button";
-import IcecreamPreview from "../../IcecreamBuilder/IcecreamPreview/IcecreamPreview";
 
 const CheckoutSummary = ({ cancelCallback }) => {
   return (
     <div className={classes.CheckoutSummary}>
       <div>
-        <IcecreamPreview ingredients={{
-          chocolate: 5, 
-          strawbarry: 5,
-          lactic: 2,
+        <HouseplantPreview pots={{
+          bananas: 2, 
+          chocolate: 3,
         }} price={150} />
       </div>
       <div>
@@ -19,5 +18,5 @@ const CheckoutSummary = ({ cancelCallback }) => {
     </div>
   );
 }
- 
-export default CheckoutSummary;
+
+export default CheckoutSummary; 

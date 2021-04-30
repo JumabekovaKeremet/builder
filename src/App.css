@@ -1,6 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,300&display=swap');
 *{
     box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
 }
 body{
     margin: 0;

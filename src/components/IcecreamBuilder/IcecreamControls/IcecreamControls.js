@@ -23,11 +23,25 @@ const IcecreamControls = ({
   }
   return (
     <div className={classes.IcecreamControls}>
-      <strong>Ingredients</strong>
       {results}
       <Button disabled={!total} onClick={startOrdering}>Order</Button>
     </div>
   );
 };
+
+// const IcecreamControls= ({ingredients , addIngredient , removeIngredient , startOrdering}) => {
+//   const results =[];
+//   let total = 0;
+//   for (const ingredient in ingredients) {
+//       total += ingredients[ingredient];
+//       results.push(<IcecreamControl type={ingredient} addIngredient={addIngredient} removeIngredient={removeIngredient} count={ingredients[ingredient]}/>)
+//   }
+//   return ( 
+//       <div className={classes.IcecreamControls}>
+//           {results}
+//           <Button disabled={!total} onClick={startOrdering}>Order</Button>
+//       </div>
+//    );
+// }
 
 export default IcecreamControls;

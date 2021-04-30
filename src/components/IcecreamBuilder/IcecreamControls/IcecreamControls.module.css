@@ -1,7 +1,15 @@
+
 .IcecreamControls{
-    flex: 0 0 250px;
-    color: rgb(199, 151, 117);
-   background-color: rgb(246, 253, 151); 
-   padding: 1rem;
-   border-radius: 1rem;
+    background-color: rgb(246, 253, 151); 
+    width: 300px;
+    height: 600px;
+    padding: 1rem;
+    border-radius: 50px;
+    text-align: center;
+}
+@media(max-width:1020px){
+    .IcecreamControls{
+        max-width: 80%;
+        margin: 0 auto;
+    }
 }

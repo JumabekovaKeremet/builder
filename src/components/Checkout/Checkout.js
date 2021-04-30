@@ -1,15 +1,14 @@
-import CheckoutSummary from "../Checkout/CheckoutSummary/CheckoutSummary";
+import CheckoutSummary from "./CheckoutSummary/CheckoutSummary";
 
 const Checkout = ({ history }) => {
-  function cancelCallback() {
-    history.replace('/');
-  }
+    function cancelCallback() {
+      history.replace('/');
+    }
+    return (
+        <div>
+          <CheckoutSummary cancelCallback={cancelCallback} />
+        </div>
+      );
+    }
 
-  return (
-    <div>
-      <CheckoutSummary cancelCallback={cancelCallback} />
-    </div>
-  );
-}
- 
 export default Checkout;

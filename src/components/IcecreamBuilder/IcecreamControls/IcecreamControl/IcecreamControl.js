@@ -7,7 +7,7 @@ const IcecreamControl = ({ count, type, add, remove }) => {
 
     return ( 
         <div className={classes.IcecreamControl}>
-      <Button onClick={() => add(type)}>+</Button>
+      <Button onClick={() => add(type)} >+</Button>
       <div className={classes.ingredient}>
         <IcecreamIngredient type={type} fixed />
       </div>
@@ -17,3 +17,4 @@ const IcecreamControl = ({ count, type, add, remove }) => {
 }
  
 export default IcecreamControl;
+

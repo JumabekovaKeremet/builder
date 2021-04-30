@@ -1,10 +1,18 @@
-.IcecreamControl {
+
+  .IcecreamControl{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: .5rem 0;
-  }
-  .IcecreamControl .ingredient div {
-    position: static;
-    margin: 0 .5rem;
-  }
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin-top: 5px;
+}
+.IcecreamControl div{
+    background-size: cover;
+    margin: 15px;
+    margin-top: 0;
+}
+.IcecreamControl div:hover{
+    background-color: #eee;
+    border-radius: 50%;
+}
