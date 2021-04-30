@@ -1,12 +1,8 @@
 
 import IcecreamIngredient from "../IcecreamIngredient/IcecreamIngredient";
 import classes from "./IcecreamPreview.module.css";
-import icecream from "../../../img/icecream.svg"
 
 const IcecreamPreview = ({ ingredients, price }) => {
-  const types = {
-    icecream: { backgroundImage: `url(${icecream  })`, width: "50px", height: "50px" },
-  };
 
     const result =[];
 
