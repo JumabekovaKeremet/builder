@@ -93,10 +93,21 @@ const IcecreamBuilder = (history) => {
             ingredients={ingredients}
             price={price}
             />
-          <Button onClick={finishOrdering} green>Checkout</Button>
+          <Button onClick={finishOrdering}  green>Checkout</Button>
           <Button onClick={stopOrdering}>Cancel</Button>
       </Modal>
     </div>
+//      <div>
+//      <div className={classes.IcecreamBuilder}>
+//          <IcecreamPreview ingredients={ingredients} price={price} />
+//          <IcecreamControls ingredients={ingredients} addIngredient={addIngredient} removeIngredient={removeIngredient} startOrdering={startOrdering} />
+//          <Modal show={ordering} cancel={stopOrdering}>
+//              <OrderSummary ingredients={ingredients} price={price} />
+//              <Button onClick={finishOrdering} green>Checkout</Button>
+//              <Button onClick={stopOrdering}>Cancel</Button>
+//          </Modal>
+//      </div>
+//  </div>
   );
 };
 

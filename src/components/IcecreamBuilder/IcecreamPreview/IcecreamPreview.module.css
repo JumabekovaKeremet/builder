@@ -2,17 +2,18 @@
   width: 650px;
   background-color: rgb(246, 253, 151);
   border-radius: 50px;
-display: flex;
-width: 800px;
+  display: flex;
+  width: 800px;
   margin-bottom: 1rem;
-  
 }
 .icecream {
+  width: 650px;
   display: flex;
   flex-wrap: wrap;
   margin: 5px;
-  padding: 18px;
   background-color: rgb(246, 253, 151);
+  border-radius: 15px;
+  padding: 0;
 }
 .price {
   background-color: rgb(255, 152, 133);

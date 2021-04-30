@@ -1,6 +1,12 @@
 .IcecreamIngredient{
  background-size: cover;
 display: flex;
-margin: 10px;
-
+margin: 5px;
 }
+@media (max-width: 684px) {
+    .IcecreamIngredient {
+
+      flex-direction: column;
+    }
+  }
+  
