@@ -1,4 +1,4 @@
-
+  
 import CheckoutSummary from "./CheckoutSummary/CheckoutSummary"
 import IcecreamPreview from "../IcecreamBuilder/IcecreamPreview/IcecreamPreview";
 import CheckoutForm from "./CheckoutForm/CheckoutForm";
@@ -16,12 +16,11 @@ const Checkout = ({ history }) => {
       address: data.get('address'),
       phone: data.get('phone'),
       ingredients: {
-        tomato: 10,
-        salami: 10,
-        redPepper: 10,
-        yellowPepper: 10,
-        greenOlive: 10,
-        blackOlive: 10,
+        chocolate: 4,
+        lactic: 1,
+        strawbarry: 2,
+        bananas: 2,
+        pistachio: 5,
       },
       price: 100,
     }).then(response => {

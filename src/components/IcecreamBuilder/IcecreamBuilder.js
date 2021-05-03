@@ -7,13 +7,14 @@ import IcecreamControls from "./IcecreamControls/IcecreamControls";
 import IcecreamPreview from "./IcecreamPreview/IcecreamPreview";
 import OrderSummary from "./OrderSummary/OrderSummary";
 import Button from "../UI/Button/Button";
+import { useSelector } from "react-redux";
 
-const IcecreamBuilder = (history) => {
+const IcecreamBuilder = ({history}) => {
 
-  const [ingredients, setIngredients] = useState([]);
+  const ingredients = useSelector(state => state.ingredients);
+  const price = useSelector(state => state.price);
   const [ordering, setOrdering] = useState(false);
 
-  const [price, setPrice] = useState(0);
   const prices = {
     bananas: 5,
     chocolate: 6,
@@ -22,36 +23,22 @@ const IcecreamBuilder = (history) => {
     lactic: 2,
   };
   
-    useEffect(loadDefaults, []);
+    // useEffect(loadDefaults, []);
   
-    function loadDefaults() {
-      axios
-        .get('https://builder-5666c-default-rtdb.firebaseio.com/default.json')
-        .then(response => {
-          setPrice(response.data.price);
+    // function loadDefaults() {
+    //   axios
+    //     .get('https://builder-5666c-default-rtdb.firebaseio.com/default.json')
+    //     .then(response => {
+    //       setPrice(response.data.price);
   
-          // For arrays
-          // setIngredients(Object.values(response.data.ingredients));
-          // For objects
-          setIngredients(response.data.ingredients);
-        });
-    }
+    //       // For arrays
+    //       // setIngredients(Object.values(response.data.ingredients));
+    //       // For objects
+    //       setIngredients(response.data.ingredients);
+    //     });
+    // }
   
-    function addIngredient(type) {
-      const newIngredients = { ...ingredients };
-      newIngredients[type]++;
-      setPrice(price + prices[type]);
-      setIngredients(newIngredients);
-    }
-  
-    function removeIngredient(type) {
-      if (ingredients[type]) {
-        const newIngredients = { ...ingredients };
-        newIngredients[type]--;
-        setPrice(price - prices[type]);
-        setIngredients(newIngredients);
-      }
-    }
+
   
     function startOrdering() {
       setOrdering(true);
@@ -72,7 +59,7 @@ const IcecreamBuilder = (history) => {
         })
         .then(() => {
           setOrdering(false);
-          loadDefaults();
+          // loadDefaults();
           history.push('/checkout');
         });
     }
@@ -83,8 +70,7 @@ const IcecreamBuilder = (history) => {
       <IcecreamControls
         ingredients={ingredients}
         addIngredient={addIngredient} 
-        removeIngredient={removeIngredient}
-        startOrdering = {startOrdering}
+       
       />
       <Modal
       show={ordering}

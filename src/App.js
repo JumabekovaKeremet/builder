@@ -1,14 +1,19 @@
 import Layout from "./components/Layout/Layout";
-import IcecreamBuilder from "./components/IcecreamBuilder/IcecreamBuilder";
-
+import Checkout from "./components/Checkout/Checkout";
+import { Redirect, Route, Switch } from "react-router";
+import Orders from "./components/Orders/Orders";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
       <Layout>
-      
-        <IcecreamBuilder/>
+      <Switch>
+          <Route path="/" component={PizzaBuilder} exact />
+          <Route path="/checkout" component={Checkout} />
+          <Route path="/orders" component={Orders} />
+          <Redirect to="/" />
+        </Switch>
       </Layout>
     </div>
   );
