@@ -1,5 +1,5 @@
-import classes from "./CheckoutSummary.module.css";
-import IcecreamPreviewew from "../../IcecreamPreview/IcecreamPreview/IcecreamPreview";
+import classes from "./CheckoutSummary.module.classes";
+import IcecreamPreview from "../IcecreamBuilder/IcecreamPreview/IcecreamPreview";
 
   return (
     <div>
