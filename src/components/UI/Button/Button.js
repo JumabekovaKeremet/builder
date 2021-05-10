@@ -7,8 +7,10 @@ const Button = (props) => {
   }
 
   return (
-    <button {...props} className={className.join(' ')}>{props.children}</button>
+    <button {...props} className={className.join(" ")}>
+      {props.children}
+    </button>
   );
-}
+};
 
 export default Button;
