@@ -3,7 +3,7 @@ const OrderSummary = ({ ingredients, price }) => {
     const labels = {
       bananas: "bananas",
       chocolate: "chocolate",
-      strawbarry: "strawbarry ",
+      strawberry: "strawberry ",
       pistachio: "pistachio ",
       lactic: "lactic",
     }
