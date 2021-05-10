@@ -12,5 +12,4 @@ const Order = ({ name, phone, address, ingredients, price }) => {
     </div>
   );
 }
-
 export default Order; 

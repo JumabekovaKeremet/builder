@@ -1,9 +1,14 @@
-  
-import CheckoutSummary from "./CheckoutSummary/CheckoutSummary"
 import IcecreamPreview from "../IcecreamBuilder/IcecreamPreview/IcecreamPreview";
-import CheckoutForm from "./CheckoutForm/CheckoutForm";
+import CheckoutForm from "./ChecoutForm/ChecoutForm";
+import axios from "axios";
+import { useSelector } from "react-redux";
+
+import withAxios from "../withAxios";
 
 const Checkout = ({ history }) => {
+  const ingredients = useSelector(state => state.builder.ingredients);
+  const price = useSelector(state => state.builder.price);
+
   function cancelCallback() {
     history.replace('/');
   }
@@ -15,32 +20,23 @@ const Checkout = ({ history }) => {
       name: data.get('name'),
       address: data.get('address'),
       phone: data.get('phone'),
-      ingredients: {
-        chocolate: 4,
-        lactic: 1,
-        strawbarry: 2,
-        bananas: 2,
-        pistachio: 5,
-      },
-      price: 100,
+      ingredients: ingredients,
+      price: price,
     }).then(response => {
       history.replace('/');
     });
 
     event.preventDefault();
   }
+
   return (
     <div>
-      <CheckoutSummary cancelCallback={cancelCallback} />
-      <IcecreamPreview ingredients={{
-        chocolate: 5, 
-        strawbarry: 1,
-        bananas: 2,
-      }} price={150} />
+      <IcecreamPreview ingredients={ingredients} price={price} />
       <CheckoutForm
         cancelCallback={cancelCallback}
         submitCallback={submitCallback} />
     </div>
   );
 }
-export default Checkout;
+
+export default withAxios(Checkout, axios); 

@@ -1,89 +1,71 @@
-import axios from "axios";
-import React, { useEffect } from "react";
-import { useState } from "react";
-import Modal  from "../UI/Modal/Modal";
-import classes from "./IcecreamBuilder.module.css";
-import IcecreamControls from "./IcecreamControls/IcecreamControls";
 import IcecreamPreview from "./IcecreamPreview/IcecreamPreview";
+import IcecreamControls from "./IcecreamControls/IcecreamControls";
+
+import classes from "./IcecreamBuilder.module.css";
+import { useEffect, useState } from "react";
+import axios from "../../axios";  
+import Modal from "../UI/Modal/Modal";
 import OrderSummary from "./OrderSummary/OrderSummary";
 import Button from "../UI/Button/Button";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { load } from "../../store/actions/builder";
+import withAxios from "../withAxios";
 
-const IcecreamBuilder = ({history}) => {
-
-  const ingredients = useSelector(state => state.ingredients);
-  const price = useSelector(state => state.price);
+const IcecreamBuilder = ({ history }) => {
+  const dispatch = useDispatch();
+  const ingredients = useSelector(state => state.builder.ingredients);
+  const price = useSelector(state => state.builder.price);
   const [ordering, setOrdering] = useState(false);
 
-  const prices = {
-    bananas: 5,
-    chocolate: 6,
-    pistachio: 5,
-    strawberry: 4,
-    lactic: 2,
-  };
-  
-    // useEffect(loadDefaults, []);
-  
-    // function loadDefaults() {
-    //   axios
-    //     .get('https://builder-5666c-default-rtdb.firebaseio.com/default.json')
-    //     .then(response => {
-    //       setPrice(response.data.price);
-  
-    //       // For arrays
-    //       // setIngredients(Object.values(response.data.ingredients));
-    //       // For objects
-    //       setIngredients(response.data.ingredients);
-    //     });
-    // }
-  
+  useEffect(() => dispatch(load()), []);
 
-  
-    function startOrdering() {
-      setOrdering(true);
-    }
-  
-    function stopOrdering() {
-      setOrdering(false);
-    }
-  
-    function finishOrdering() {
-      axios
-        .post('https://builder-5666c-default-rtdb.firebaseio.com/orders.json', {
-          ingredients: ingredients,
-          price: price,
-          address: "1234 Jusaeva str",
-          phone: "0 777 777 777",
-          name: "Sadyr Japarov",
-        })
-        .then(() => {
-          setOrdering(false);
-          // loadDefaults();
-          history.push('/checkout');
-        });
-    }
+  function loadDefaults() {
+    axios
+      .get('https://builder-a51d0-default-rtdb.firebaseio.com/default.json')
+      .then(response => {
+        setPrice(response.data.price);
+
+        // For arrays
+        // setIngredients(Object.values(response.data.ingredients));
+        // For objects
+        setIngredients(response.data.ingredients);
+      });
+  }
+
+  function startOrdering() {
+    setOrdering(true);
+  }
+
+  function stopOrdering() {
+    setOrdering(false);
+  }
+
+  function finishOrdering() {
+    setOrdering(false);
+    // loadDefaults();
+    history.push('/checkout');
+  }
 
   return (
     <div className={classes.IcecreamBuilder}>
-      <IcecreamPreview price={price} ingredients={ingredients}/>
+      <IcecreamPreview
+        ingredients={ingredients}
+        price={price} />
       <IcecreamControls
         ingredients={ingredients}
-        addIngredient={addIngredient} 
-       
-      />
+        startOrdering={startOrdering}
+        />
       <Modal
-      show={ordering}
+        show={ordering}
         cancel={stopOrdering}>
           <OrderSummary
             ingredients={ingredients}
             price={price}
             />
-          <Button onClick={finishOrdering}  green>Checkout</Button>
+          <Button onClick={finishOrdering} green>Checkout</Button>
           <Button onClick={stopOrdering}>Cancel</Button>
-      </Modal>
+        </Modal>
     </div>
   );
-};
-
-export default React.memo(IcecreamBuilder);
+}
+export default withAxios(IcecreamBuilder, axios);
