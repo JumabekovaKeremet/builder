@@ -6,12 +6,11 @@ const initialState = {
   price: 0,
 };
 const prices = {
-  tomato: 3.5,
-  salami: 4,
-  greenOlive: .3,
-  blackOlive: .3,
-  redPepper: 2,
-  yellowPepper: 1,
+  bananas:15,
+  chocolate:20,
+  lactic:10,
+  pistachio:25,
+  strawberry:18,
 };
 
 const builder = (state = initialState, action) => {

@@ -1,11 +1,10 @@
 import React from "react";
-import classes from "./IcecreamIngredient.module.css";
-import bananas from "../../../img/bananas.svg"; 
+import bananas from "../../../img/bananas.svg";
 import chocolate from "../../../img/chocolate.svg";
 import strawberry from "../../../img/strawberry.svg";
 import pistachio from "../../../img/pistachio.svg";
 import lactic from "../../../img/lactic.svg";
-
+import classes from "./IcecreamIngredient.module.css";
 
 const IcecreamIngredient = ({ type }) => {
   const types = {

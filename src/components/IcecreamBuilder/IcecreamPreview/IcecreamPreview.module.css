@@ -1,19 +1,27 @@
 .IcereamPreview {
-  width: 650px;
-  background-color: rgb(246, 253, 151);
-  border-radius: 50px;
-  display: flex;
-  width: 800px;
-  margin-bottom: 1rem;
-}
-.icecream {
-  width: 650px;
+  
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 1rem;
+  justify-content: center;
+}
+.icecream {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
   margin: 5px;
-  background-color: rgb(246, 253, 151);
   border-radius: 15px;
   padding: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+ .ingredients {
+  width: 200px;
+  height: 400px;
+  border-radius: 100%;
+  position: relative;
 }
 .price {
   background-color: rgb(255, 152, 133);
@@ -36,4 +44,4 @@
   .price {
     margin-top: 1rem;
   }
-}
+} 

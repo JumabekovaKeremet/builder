@@ -2,59 +2,56 @@ import IcecreamControls from "./IcecreamControls/IcecreamControls";
 import IcecreamPreview from "./IcecreamPreview/IcecreamPreview";
 import classes from "./IcecreamBuilder.module.css";
 import { useEffect, useState } from "react";
-import React from "react"
+import React from "react";
 import Modal from "../UI/Modal/Modal";
 import OrderSummary from "./OrderSummary/OrderSummary";
 import Button from "../UI/Button/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { load } from "../../store/actions/builder";
 import withAxios from "../withAxios";
-import axios from "axios";
+import axios from "../../axios";
 
-const IcecreamBuilder = ({history}) => {
-    const dispatch = useDispatch();
-    const  ingredients= useSelector(state => state.builder.ingredients);
-    const price = useSelector(state => state.builder.price);
-    const [ordering , setOrdering] = useState(false);
-    
-    
-    useEffect(() => dispatch(load()), [dispatch]);
-    
-    // function loadDefaults() {
-    //     axios.get('https://builder-b9129-default-rtdb.firebaseio.com/default.json')
-    //         .then((response) => {
-    //             setPrice(response.data.price);
-    //             setPots(response.data.pots);
-    //         });
-    // }
+const IcecreamBuilder = ({ history }) => {
+  const dispatch = useDispatch();
+  const ingredients = useSelector((state) => state.builder.ingredients);
+  const price = useSelector((state) => state.builder.price);
+  const [ordering, setOrdering] = useState(false);
 
-    
+  useEffect(() => dispatch(load()), [dispatch]);
 
+  function startOrdering() {
+    setOrdering(true);
+  }
+  function stopOrdering() {
+    setOrdering(false);
+  }
+  function finishOrdering() {
+    setOrdering(false);
+    // loadDefaults(false);
+    history.push("/checkout");
+  }
+  return (
+    <div className={classes.IcecreamBuilder}>
+      <IcecreamPreview 
+      ingredients={ingredients}
+       price={price} />
+      <IcecreamControls
+        ingredients={ingredients}
+        startOrdering={startOrdering}
+      />
+      <Modal
+       show={ordering} 
+       cancel={stopOrdering}>
+        <OrderSummary 
+        ingredients={ingredients}
+         price={price} />
+        <Button onClick={finishOrdering} green="green">
+          Checkout
+        </Button>
+        <Button onClick={stopOrdering}>Cancel</Button>
+      </Modal>
+    </div>
+  );
+};
 
-    function startOrdering() {
-        setOrdering(true)
-    }
-    function stopOrdering() {
-        setOrdering(false)
-    }
-    function finishOrdering() {
-        setOrdering(false);
-        // loadDefaults(false);
-        history.push('/checkout');
-    }
-    return (
-        <div>
-            <div className={classes.IcecreamBuilder}>
-                <IcecreamPreview ingredients={ingredients} price={price} />
-                <IcecreamControls ingredients={ingredients} startOrdering={startOrdering} />
-                <Modal show={ordering} cancel={stopOrdering}>
-                    <OrderSummary ingredients={ingredients} price={price} />
-                    <Button onClick={finishOrdering} green>Checkout</Button>
-                    <Button onClick={stopOrdering}>Cancel</Button>
-                </Modal>
-            </div>
-        </div>
-    );
-}
-
-export default withAxios(IcecreamBuilder , axios) ;
+export default withAxios(IcecreamBuilder, axios);

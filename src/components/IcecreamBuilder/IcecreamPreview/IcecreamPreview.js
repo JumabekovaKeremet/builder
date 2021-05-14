@@ -1,6 +1,7 @@
 import IcecreamIngredient from "../IcecreamIngredient/IcecreamIngredient";
-
 import classes from "./IcecreamPreview.module.css";
+
+// import ingredientsBackground from "../../../img/wafer.svg";
 
 const IcecreamPreview = ({ ingredients, price }) => {
   const result = [];
@@ -10,11 +11,14 @@ const IcecreamPreview = ({ ingredients, price }) => {
     }
   }
 
+
   return (
     <div className={classes.IcecreamPreview}>
       <div className={classes.icecream}>
         <div
-          className={classes.ingredients}>
+          className={classes.ingredients}
+          style={{ backgroundImage: `url(${ingredientsBackground})` }}>
+          <IcecreamIngredient type="filling0" />
           {result}
         </div>
       </div>
@@ -22,4 +26,5 @@ const IcecreamPreview = ({ ingredients, price }) => {
     </div>
   );
 }
+
 export default IcecreamPreview;

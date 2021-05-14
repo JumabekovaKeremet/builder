@@ -19,6 +19,6 @@ export const set = (data) => ({
 });
 
 export const load = () => {
-  return (dispatch) => axios.get("https://builder-5666c-default-rtdb.firebaseio.com/default.json")
-    .then(response => dispatch(set(response.data)))
-};
+  return (dispatch) => axios.get("/default.json")
+    .then((response) => dispatch(set(response.data)))
+};    
