@@ -1,4 +1,4 @@
-.IcereamPreview {
+/* .IcereamPreview {
   
   display: flex;
   flex-wrap: wrap;
@@ -44,4 +44,43 @@
   .price {
     margin-top: 1rem;
   }
-} 
+}  */
+
+.IcecreamPreview {
+  width: 650px;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+.icecream {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #f6fd97;
+  border-radius: 40px;
+}
+
+.ingredients {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 5px;
+}
+.price {
+  max-width: 250px;
+  margin: 0 auto;
+  text-align: center;
+  color: wheat;
+  font-size: 32px;
+  padding: 5px;
+  margin-bottom: 2rem;
+  border-radius: 10px;
+}
+
+@media (max-width: 660px) {
+  .IcecreamPreview {
+    width: 100%;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+  .price {
+    margin-top: 1rem;
+  }
+}
