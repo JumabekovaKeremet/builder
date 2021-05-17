@@ -1,5 +1,6 @@
 import IcecreamPreview from "../IcecreamBuilder/IcecreamPreview/IcecreamPreview";
 import CheckoutForm from "./ChecoutForm/ChecoutForm";
+import classes from "./Checkout.module.css";
 import axios from "axios";
 import { useSelector } from "react-redux";
 

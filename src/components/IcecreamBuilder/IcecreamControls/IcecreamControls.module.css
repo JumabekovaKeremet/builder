@@ -2,9 +2,10 @@
 .IcecreamControls{
     background-color: rgb(246, 253, 151); 
     width: 300px;
-    height: 600px;
+    height: 540px;
     border-radius: 50px;
     text-align: center;
+    padding: 1rem;
 
 }
 @media(max-width:1020px){

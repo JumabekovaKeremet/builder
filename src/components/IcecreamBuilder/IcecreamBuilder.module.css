@@ -4,3 +4,10 @@
 
     margin-top: 1.7rem;
 }
+@media (max-width: 725px) {
+    .IcecreamBuilder {
+     display: flex;
+     flex-wrap: wrap;
+    }
+  }
+  
