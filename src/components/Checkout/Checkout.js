@@ -31,7 +31,7 @@ const Checkout = ({ history }) => {
   }
 
   return (
-    <div>
+    <div className={Checkout}>
       <IcecreamPreview ingredients={ingredients} price={price} />
       <CheckoutForm
         cancelCallback={cancelCallback}
