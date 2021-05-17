@@ -1,9 +1,8 @@
 import IcecreamPreview from "../IcecreamBuilder/IcecreamPreview/IcecreamPreview";
-import CheckoutForm from "./ChecoutForm/ChecoutForm";
+import ChecoutForm from "./ChecoutForm/ChecoutForm";
 import classes from "./Checkout.module.css";
-import axios from "axios";
+import axios from "../../axios";
 import { useSelector } from "react-redux";
-
 import withAxios from "../withAxios";
 
 const Checkout = ({ history }) => {
@@ -17,7 +16,7 @@ const Checkout = ({ history }) => {
   function submitCallback(event) {
     const data = new FormData(event.target);
 
-    axios.post('https://builder-5666c-default-rtdb.firebaseio.com/orders.json', {
+    axios.post('/orders.json', {
       name: data.get('name'),
       address: data.get('address'),
       phone: data.get('phone'),
@@ -31,13 +30,13 @@ const Checkout = ({ history }) => {
   }
 
   return (
-    <div className={Checkout}>
+    <div className={classes.Checkout}>
       <IcecreamPreview ingredients={ingredients} price={price} />
-      <CheckoutForm
+      <ChecoutForm
         cancelCallback={cancelCallback}
         submitCallback={submitCallback} />
     </div>
   );
 }
-
-export default withAxios(Checkout, axios); 
+ 
+export default withAxios(Checkout, axios);
