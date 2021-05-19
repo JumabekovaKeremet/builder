@@ -1,13 +1,14 @@
 .IcecreamBuilder{
     display: flex;
+    -webkit-justify-content: space-around;
     justify-content: space-around;
-
     margin-top: 1.7rem;
 }
 @media (max-width: 725px) {
     .IcecreamBuilder {
      display: flex;
      flex-wrap: wrap;
+     margin: 0 auto;
     }
   }
   
