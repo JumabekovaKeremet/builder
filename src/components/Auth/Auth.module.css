@@ -1,0 +1,32 @@
+.Auth {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 1.5rem;
+    justify-content: center;
+    text-align: center;
+  }
+  .Auth > div {
+    flex: 0 0 100%;
+    padding: .2rem 1rem;
+  }
+  .Auth > div > label::after {
+    content: ":";
+    margin-right: 1rem;
+  }
+  .Auth > div > input {
+    border-radius: 1rem;
+    border: 1px solid lightgray;
+    font-size: 1.5rem;
+    padding: 0 1rem;
+  }
+  .Auth > div > input:focus {
+    outline: none;
+    border-color: darkgray;
+  }
+  @media (max-width: 725px) {
+    .Auth {
+     display: flex;
+     flex-wrap: wrap;
+     margin: 0 auto;
+    }
+  }

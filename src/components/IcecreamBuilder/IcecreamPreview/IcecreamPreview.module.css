@@ -45,7 +45,6 @@
     margin-top: 1rem;
   }
 }  */
-
 .IcecreamPreview {
   width: 650px;
   margin-right: 1rem;
@@ -74,6 +73,21 @@
   border-radius: 10px;
 }
 
+@keyframes example-animation {
+  0% {
+      z-index: 1;
+  }
+  49% {
+      z-index: 1;
+  }
+  50% {
+      z-index: -1;
+  }
+  100% {
+      z-index: -1;
+  }
+}
+
 @media (max-width: 660px) {
   .IcecreamPreview {
     width: 100%;
@@ -82,5 +96,12 @@
   }
   .price {
     margin-top: 1rem;
+  }
+}
+@media (max-width: 725px) {
+  .IcecreamPreview {
+   display: flex;
+   flex-wrap: wrap;
+   margin: 1.7rem 0;
   }
 }
