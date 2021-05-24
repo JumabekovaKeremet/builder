@@ -5,6 +5,7 @@
   text-decoration: none;
   display: block;
   padding: .5rem 1rem .35rem;
+  height: 64px;
 }
 .NavItem a:hover {
   border-color: rgb(240, 206, 206);

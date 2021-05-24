@@ -1,10 +1,10 @@
-.CheckoutForm {
-    display: flex;
-    flex-wrap: wrap;
-    font-size: 1.5rem;
-    justify-content: center;
-    text-align: center;
-  }
+.ChecoutForm{
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 1.5rem;
+  justify-content: center;
+  text-align: center;
+}
   .CheckoutForm > div {
     flex: 0 0 100%;
     padding: .2rem 1rem;

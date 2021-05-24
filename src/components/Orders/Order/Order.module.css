@@ -1,16 +1,13 @@
-.Order{
-    border: 2px solid rgb(247, 245, 161);
-    box-shadow: rgb(247, 245, 161)   0 0 10px;
-    margin: 1.7rem 0;
-    width: 200px;
-    height: 180px;
-    padding: 15px 15px ;
-    margin-bottom: 15px;
-    background-color: rgb(247, 245, 161);
-}
+
 .ingredient{
     display: flex;
-}
-.Order strong{
-    border-radius: 30%;
-}
+}  
+.Order{
+    color: rgb(255, 152, 133);
+    margin: 2rem;
+    padding: 1rem;
+    width: 15rem;
+    font-size: 20px;
+    box-shadow: 0 0 20px yellow;
+    background-color: rgb(247, 245, 161);
+  }

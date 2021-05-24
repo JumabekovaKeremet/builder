@@ -18,7 +18,9 @@ const IcecreamPreview = ({ ingredients, price }) => {
       <div className={classes.icecream}>
         <div className={classes.ingredients}>{result}</div>
       </div>
-      <div className={classes.price}>{price.toFixed(1)} som</div>
+      <div className={classes.price}>
+        {price.toFixed(1)} som
+        </div>
     </div>
   );
 };

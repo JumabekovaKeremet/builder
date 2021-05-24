@@ -1,4 +1,12 @@
 .Checkout {
   width: 420px;
-  margin: 0 auto;
+  margin: 1.7rem 0;
+}
+
+@media (max-width: 725px) {
+  .CheckoutForm {
+   display: flex;
+   flex-wrap: wrap;
+   margin: 1.7rem 0;
+  }
 }

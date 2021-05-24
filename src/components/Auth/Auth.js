@@ -49,9 +49,9 @@ export default withAxios(() => {
 
   return (
     <div className={classes.Auth}>
-      {errorOutput}
+      <div className={classes.Error}>{errorOutput}
       {formOutput}
-      {redirectOutput}
+      {redirectOutput}</div>
     </div>
   );
 }, axios);
