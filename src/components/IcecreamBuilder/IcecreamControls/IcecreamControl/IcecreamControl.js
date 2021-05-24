@@ -13,9 +13,10 @@ const IcecreamControl = ({ type, count }) => {
       <div className={classes.ingredient}>
         <IcecreamIngredient type={type} fixed />
       </div>
-      <Button onClick={() => dispatch(remove(type))} disabled={!count}>-</Button>
+      <Button onClick={() => dispatch(remove(type))} disabled={!count}>
+        -
+      </Button>
     </div>
   );
-}
+};
 export default IcecreamControl;
-

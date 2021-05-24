@@ -1,28 +1,27 @@
-
 import Button from "../../UI/Button/Button";
 import IcecreamControl from "./IcecreamControl/IcecreamControl";
 import classes from "./IcecreamControls.module.css";
 
-
-const IcecreamControls = ({
-  ingredients,
-  startOrdering
-}) => {
+const IcecreamControls = ({ ingredients, startOrdering }) => {
   const results = [];
   let total = 0;
   for (const ingredient in ingredients) {
     total += ingredients[ingredient];
-    results.push(<IcecreamControl
+    results.push(
+      <IcecreamControl
         key={ingredient}
         count={ingredients[ingredient]}
-        type={ingredient} />)
+        type={ingredient}
+      />
+    );
   }
 
   return (
     <div className={classes.IcecreamControls}>
-      
       {results}
-      <Button disabled={!total} onClick={startOrdering}>Order</Button>
+      <Button disabled={!total} onClick={startOrdering}>
+        Order
+      </Button>
     </div>
   );
 };

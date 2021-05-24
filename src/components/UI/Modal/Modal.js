@@ -1,8 +1,6 @@
 import classes from "./Modal.module.css";
 import Backdrop from "../Backdrop";
 
-
-
 const Modal = ({ show, children, cancel }) => {
   const style = {
     transform: show ? "translateY(0)" : "translateY(-100vh)",
@@ -16,7 +14,6 @@ const Modal = ({ show, children, cancel }) => {
       </div>
     </div>
   );
-}
-
+};
 
 export default Modal;

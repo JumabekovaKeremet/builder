@@ -8,11 +8,11 @@ const Toolbar = ({ openDrawer }) => {
     <div className={classes.Toolbar}>
       <Logo />
       <nav>
-      <Nav />
+        <Nav />
       </nav>
       <DrawerOpen click={openDrawer} />
     </div>
   );
-}
- 
+};
+
 export default Toolbar;

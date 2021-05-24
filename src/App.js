@@ -14,9 +14,9 @@ import { restore } from "./store/actions/auth";
 
 const App = () => {
   const dispatch = useDispatch();
-  const isAuthenticated = useSelector(state => state.auth.token !== null);
+  const isAuthenticated = useSelector((state) => state.auth.token !== null);
 
-  useEffect(() => restore (dispatch), [dispatch]);
+  useEffect(() => restore(dispatch), [dispatch]);
 
   let routesOutput = (
     <Switch>
@@ -34,17 +34,15 @@ const App = () => {
         <Route path="/auth" component={Auth} />
         <Route path="/logout" component={Logout} />
         <Redirect to="/" />
-      </Switch>   
+      </Switch>
     );
   }
 
   return (
     <div className="App">
-      <Layout>
-      {routesOutput}
-      </Layout>
+      <Layout>{routesOutput}</Layout>
     </div>
   );
-}
+};
 
 export default App;

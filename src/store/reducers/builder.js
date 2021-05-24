@@ -1,16 +1,19 @@
-import { ADD_INGREDIENT, REMOVE_INGREDIENT, SET_INGREDIENTS } from "../actions/types";
+import {
+  ADD_INGREDIENT,
+  REMOVE_INGREDIENT,
+  SET_INGREDIENTS,
+} from "../actions/types";
 
 const initialState = {
-  ingredients: {
-  },
+  ingredients: {},
   price: 0,
 };
 const prices = {
-  bananas:15,
-  chocolate:20,
-  lactic:10,
-  pistachio:25,
-  strawberry:18,
+  bananas: 15,
+  chocolate: 20,
+  lactic: 10,
+  pistachio: 25,
+  strawberry: 18,
 };
 
 const builder = (state = initialState, action) => {
@@ -29,12 +32,12 @@ const builder = (state = initialState, action) => {
       newState.ingredients = action.data.ingredients;
       newState.price = action.data.price;
       break;
-  
+
     default:
       break;
   }
 
   return newState;
-}
+};
 
 export default builder;
