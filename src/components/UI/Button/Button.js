@@ -5,6 +5,9 @@ const Button = (props) => {
   if (props.green) {
     className.push(classes.green);
   }
+  if  (props.blue) {
+    className.push(classes.blue);
+  }
 
   return (
     <button {...props} className={className.join(" ")}>

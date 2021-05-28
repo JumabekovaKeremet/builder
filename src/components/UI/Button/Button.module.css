@@ -20,8 +20,8 @@
 }
 
 .green {
-  background-color: rgb(250, 248, 107);
+  background-color: rgb(172, 219, 233);
 }
 .green:not(:disabled):hover {
-  background-color: rgb(255, 252, 102);
+  background-color: rgba(35, 167, 190, 0.589);
 }

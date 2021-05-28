@@ -1,10 +1,9 @@
-import Button from "../../UI/Button/Button";
 import classes from "./ChecoutForm.module.css";
 
 const CheckoutForm = ({ cancelCallback, submitCallback }) => {
   return (
-    <form className={classes.CheckoutForm} onSubmit={submitCallback}>
-      <div>
+    <form className={classes.ChecoutForm} onSubmit={submitCallback}>
+      <div className={classes.ChecoutForm}>
         <label htmlFor="name">Name</label>
         <input type="text" name="name" id="name" required />
       </div>
@@ -22,8 +21,8 @@ const CheckoutForm = ({ cancelCallback, submitCallback }) => {
           pattern="0[0-9]{9}"
         />
       </div>
-      <Button>Checkout</Button>
-      <Button onClick={cancelCallback}>Cancel</Button>
+      <button>Checkout</button>
+      <button onClick={cancelCallback}>Cancel</button>
     </form>
   );
 };

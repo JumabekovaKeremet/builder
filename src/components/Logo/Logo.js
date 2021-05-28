@@ -8,7 +8,7 @@ const Logo = () => {
         src={logo}
         className={classes.Logo}
       />
-      <div className={classes.Text}>Icecream</div>
+      <div className={classes.Text}>Ice cream</div>
     </div>
   );
 };

@@ -1,32 +1,55 @@
-.ChecoutForm{
+.ChecoutForm {
   display: flex;
   flex-wrap: wrap;
   font-size: 1.5rem;
   justify-content: center;
   text-align: center;
+  color: white;
 }
-  .CheckoutForm > div {
+  .ChecoutForm > div {
     flex: 0 0 100%;
     padding: .2rem 1rem;
   }
-  .CheckoutForm > div > label::after {
+  .ChecoutForm > div > label::after {
     content: ":";
     margin-right: 1rem;
   }
-  .CheckoutForm > div > input {
+  .ChecoutForm > div > input {
     border-radius: 1rem;
     border: 1px solid lightgray;
     font-size: 1.5rem;
     padding: 0 1rem;
   }
-  .CheckoutForm > div > input:focus {
+  .ChecoutForm > div > input:focus {
     outline: none;
     border-color: darkgray;
   }
   @media (max-width: 725px) {
-    .CheckoutForm {
+    .ChecoutForm {
      display: flex;
      flex-wrap: wrap;
      margin: 0 auto;
     }
   }
+
+  button {
+    border: 0;
+    margin: 0 1rem;
+    padding: 0 1rem;
+    border-radius: 1rem;
+    background-color: rgb(172, 219, 233);
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  button:not(:disabled):hover {
+    background-color: rgba(35, 167, 190, 0.589);
+  }
+  button:focus {
+    outline: none;
+  }
+  button:disabled {
+    opacity: .5;
+  }
+  

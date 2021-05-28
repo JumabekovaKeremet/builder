@@ -3,7 +3,7 @@ import Backdrop from "../Backdrop";
 
 const Modal = ({ show, children, cancel }) => {
   const style = {
-    transform: show ? "translateY(0)" : "translateY(-100vh)",
+    transform: show ? "translateY(0)" : "translateY(-400vh)",
   };
 
   return (
