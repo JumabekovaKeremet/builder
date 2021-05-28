@@ -2,7 +2,7 @@ import classes from "./ChecoutForm.module.css";
 
 const CheckoutForm = ({ cancelCallback, submitCallback }) => {
   return (
-    <form className={classes.ChecoutForm} onSubmit={submitCallback}>
+    <form className={classes.CheckoutForm} onSubmit={submitCallback}>
       <div className={classes.ChecoutForm}>
         <label htmlFor="name">Name</label>
         <input type="text" name="name" id="name" required />
