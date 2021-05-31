@@ -3,14 +3,14 @@
   margin: 0 1rem;
   padding: 0 1rem;
   border-radius: 1rem;
-  background-color: rgb(255, 152, 133);
-  color: white;
+  background-color: white;
+  color: rgb(162, 215, 231);
   font-weight: bold;
   font-size: 1.5rem;
   cursor: pointer;
 }
 .Button:not(:disabled):hover {
-  background-color: rgb(172, 26, 0);
+  background-color: rgba(35, 167, 190, 0.589);
 }
 .Button:focus {
   outline: none;
@@ -20,8 +20,9 @@
 }
 
 .green {
-  background-color: rgb(172, 219, 233);
+  background-color: rgb(162, 215, 231);
+  color: white;
 }
 .green:not(:disabled):hover {
-  background-color: rgba(35, 167, 190, 0.589);
+  background-color: rgb(104, 203, 233);
 }

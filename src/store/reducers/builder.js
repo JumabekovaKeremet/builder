@@ -11,7 +11,7 @@ const initialState = {
 const prices = {
   bananas: 15,
   chocolate: 20,
-  lactic: 10,
+  blackberry: 10,
   pistachio: 25,
   strawberry: 18,
 };

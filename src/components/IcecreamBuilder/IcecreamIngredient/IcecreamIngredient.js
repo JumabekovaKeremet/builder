@@ -3,7 +3,7 @@ import bananas from "../../../img/bananas.svg";
 import chocolate from "../../../img/chocolate.svg";
 import strawberry from "../../../img/strawberry.svg";
 import pistachio from "../../../img/pistachio.svg";
-import lactic from "../../../img/lactic.svg";
+import blackberry from "../../../img/blackberry.svg";
 import classes from "./IcecreamIngredient.module.css";
 
 const IcecreamIngredient = ({ type }) => {
@@ -28,8 +28,8 @@ const IcecreamIngredient = ({ type }) => {
       width: "80px",
       height: "80px",
     },
-    lactic: {
-      backgroundImage: `url(${lactic})`,
+    blackberry: {
+      backgroundImage: `url(${blackberry})`,
       width: "80px",
       height: "80px",
     },

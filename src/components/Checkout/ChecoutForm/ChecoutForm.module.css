@@ -1,10 +1,10 @@
-  
 .CheckoutForm {
   display: flex;
   flex-wrap: wrap;
   font-size: 1.5rem;
   justify-content: center;
   text-align: center;
+  margin: 0 auto;
 }
 .CheckoutForm > div {
   flex: 0 0 100%;
@@ -24,24 +24,21 @@
   outline: none;
   border-color: darkgray;
 }
-  button {
-    border: 0;
-    margin: 0 1rem;
-    padding: 0 1rem;
-    border-radius: 1rem;
-    background-color: rgb(172, 219, 233);
-    color: white;
-    font-weight: bold;
-    font-size: 1.5rem;
-    cursor: pointer;
-  }
-  button:not(:disabled):hover {
-    background-color: rgba(35, 167, 190, 0.589);
-  }
-  button:focus {
-    outline: none;
-  }
-  button:disabled {
-    opacity: .5;
-  }
-  
+
+.CheckoutForm label {
+    color: rgb(162, 215, 231);
+}
+button {
+  border: 0;
+  margin: 0 1rem;
+  padding: 0 1rem;
+  border-radius: 1rem;
+  background-color: rgb(162, 216, 233);
+  color: white;
+  font-weight: bold;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+button:not(:disabled):hover {
+  background-color: rgb(96, 210, 245);
+}
